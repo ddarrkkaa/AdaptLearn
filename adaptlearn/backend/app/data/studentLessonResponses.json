@@ -1,0 +1,243 @@
+{
+  "_comment": "Відповіді учнів НА уроках. Ключ: studentId → lessonId → bundle. Для класу 10А: 5 учнів (9,10,11,12,13) × 10 уроків (id 10-19). Поле 'subject' дублюється для switch CareerSticker без додаткового API запиту.",
+
+  "_lessons": {
+    "10": { "subject": "Математика",      "topic": "Похідна функції" },
+    "11": { "subject": "Математика",      "topic": "Тригонометричні функції" },
+    "12": { "subject": "Фізика",          "topic": "Закони збереження енергії" },
+    "13": { "subject": "Українська мова", "topic": "Складнопідрядне речення" },
+    "14": { "subject": "Хімія",           "topic": "Кислоти та їх властивості" },
+    "15": { "subject": "Біологія",        "topic": "Будова клітини" },
+    "16": { "subject": "Англійська мова", "topic": "Present Perfect Tense" },
+    "17": { "subject": "Географія",       "topic": "Материки і океани" },
+    "18": { "subject": "Історія України", "topic": "Київська Русь" },
+    "19": { "subject": "Інформатика",     "topic": "Алгоритми. Блок-схеми" }
+  },
+
+  "9": {
+    "10": { "subject":"Математика",      "lessonDate":"12.05.2026", "totalAccuracy":82, "skillsAffected":{"Диференціювання":0.15,"Геометричний зміст":-0.08}, "responses":[
+      {"q":"Похідна x² у точці x₀","given":"2x₀","correct":"2x₀","isCorrect":true,"accuracy":95},
+      {"q":"Геометричний зміст похідної","given":"площа під кривою","correct":"тангенс кута нахилу дотичної","isCorrect":false,"accuracy":25},
+      {"q":"Похідна sin(x)","given":"cos(x)","correct":"cos(x)","isCorrect":true,"accuracy":100}
+    ]},
+    "11": { "subject":"Математика",      "lessonDate":"08.05.2026", "totalAccuracy":75, "skillsAffected":{"Тригонометрія":0.10,"Знаки в похідних":-0.12}, "responses":[
+      {"q":"sin²(x) + cos²(x) = ?","given":"1","correct":"1","isCorrect":true,"accuracy":100},
+      {"q":"Похідна cos(x)","given":"sin(x)","correct":"-sin(x)","isCorrect":false,"accuracy":20},
+      {"q":"Період функції sin(x)","given":"2π","correct":"2π","isCorrect":true,"accuracy":100}
+    ]},
+    "12": { "subject":"Фізика",          "lessonDate":"07.05.2026", "totalAccuracy":67, "skillsAffected":{"Закони збереження":0.05,"Робота сил":-0.15}, "responses":[
+      {"q":"Формула кінетичної енергії","given":"mv²/2","correct":"mv²/2","isCorrect":true,"accuracy":100},
+      {"q":"Робота сили тертя","given":"позитивна","correct":"негативна","isCorrect":false,"accuracy":0},
+      {"q":"Закон збереження енергії","given":"сума мех. енергій стала","correct":"Eкін + Eпот = const","isCorrect":true,"accuracy":75}
+    ]},
+    "13": { "subject":"Українська мова", "lessonDate":"11.05.2026", "totalAccuracy":71, "skillsAffected":{"Синтаксис":0.08}, "responses":[
+      {"q":"Тип речення: \"Я знав, що ти прийдеш\"","given":"з'ясувальне","correct":"з'ясувальне","isCorrect":true,"accuracy":90},
+      {"q":"Кома перед \"і\" у складному реченні","given":"завжди","correct":"якщо є спільний другорядний член — ні","isCorrect":false,"accuracy":30}
+    ]},
+    "14": { "subject":"Хімія",           "lessonDate":"05.05.2026", "totalAccuracy":88, "skillsAffected":{"Класифікація кислот":0.12}, "responses":[
+      {"q":"Формула сірчаної кислоти","given":"H₂SO₄","correct":"H₂SO₄","isCorrect":true,"accuracy":100},
+      {"q":"pH сильної кислоти","given":"менше 7","correct":"менше 7","isCorrect":true,"accuracy":100},
+      {"q":"Реакція з металами","given":"виділяється кисень","correct":"виділяється водень","isCorrect":false,"accuracy":40}
+    ]},
+    "15": { "subject":"Біологія",        "lessonDate":"04.05.2026", "totalAccuracy":92, "skillsAffected":{"Будова клітини":0.18}, "responses":[
+      {"q":"Що таке мітохондрія","given":"енергетична станція клітини","correct":"енергетична станція клітини","isCorrect":true,"accuracy":100},
+      {"q":"Функція рибосом","given":"синтез білка","correct":"синтез білка","isCorrect":true,"accuracy":100},
+      {"q":"Де знаходиться ДНК у клітині","given":"в ядрі","correct":"в ядрі (та мітохондріях)","isCorrect":true,"accuracy":85}
+    ]},
+    "16": { "subject":"Англійська мова", "lessonDate":"03.05.2026", "totalAccuracy":70, "skillsAffected":{"Present Perfect":0.08}, "responses":[
+      {"q":"I ___ never been to London","given":"have","correct":"have","isCorrect":true,"accuracy":100},
+      {"q":"Past Participle of \"go\"","given":"went","correct":"gone","isCorrect":false,"accuracy":30},
+      {"q":"\"Just\" position in PP","given":"after have","correct":"between have and V3","isCorrect":true,"accuracy":80}
+    ]},
+    "17": { "subject":"Географія",       "lessonDate":"02.05.2026", "totalAccuracy":78, "skillsAffected":{"Материки":0.10}, "responses":[
+      {"q":"Скільки материків","given":"6","correct":"6","isCorrect":true,"accuracy":100},
+      {"q":"Найбільший океан","given":"Атлантичний","correct":"Тихий","isCorrect":false,"accuracy":35},
+      {"q":"Найвища точка Африки","given":"Кіліманджаро","correct":"Кіліманджаро","isCorrect":true,"accuracy":100}
+    ]},
+    "18": { "subject":"Історія України", "lessonDate":"30.04.2026", "totalAccuracy":74, "skillsAffected":{"Київська Русь":0.10}, "responses":[
+      {"q":"Хто хрестив Русь","given":"Володимир Великий","correct":"Володимир Великий","isCorrect":true,"accuracy":100},
+      {"q":"Рік хрещення","given":"988","correct":"988","isCorrect":true,"accuracy":100},
+      {"q":"Перший літопис","given":"Слово о полку Ігоревім","correct":"Повість временних літ","isCorrect":false,"accuracy":20}
+    ]},
+    "19": { "subject":"Інформатика",     "lessonDate":"28.04.2026", "totalAccuracy":85, "skillsAffected":{"Алгоритми":0.14}, "responses":[
+      {"q":"Що таке цикл","given":"повторення дій","correct":"повторення блоку інструкцій","isCorrect":true,"accuracy":95},
+      {"q":"Символ \"ромб\" у блок-схемі","given":"умова","correct":"умова (розгалуження)","isCorrect":true,"accuracy":100},
+      {"q":"Складність алгоритму O(n²)","given":"швидкий","correct":"квадратичний — повільний","isCorrect":false,"accuracy":40}
+    ]}
+  },
+
+  "10": {
+    "10": { "subject":"Математика",      "lessonDate":"12.05.2026", "totalAccuracy":50, "skillsAffected":{"Диференціювання":-0.05}, "responses":[
+      {"q":"Похідна x²","given":"x","correct":"2x","isCorrect":false,"accuracy":30},
+      {"q":"Похідна константи","given":"0","correct":"0","isCorrect":true,"accuracy":100}
+    ]},
+    "11": { "subject":"Математика",      "lessonDate":"08.05.2026", "totalAccuracy":45, "skillsAffected":{"Тригонометрія":-0.10}, "responses":[
+      {"q":"sin(π/2) = ?","given":"0","correct":"1","isCorrect":false,"accuracy":0},
+      {"q":"Період tg(x)","given":"2π","correct":"π","isCorrect":false,"accuracy":30}
+    ]},
+    "12": { "subject":"Фізика",          "lessonDate":"07.05.2026", "totalAccuracy":32, "skillsAffected":{"Закони збереження":-0.20}, "responses":[
+      {"q":"Формула кінетичної енергії","given":"mv","correct":"mv²/2","isCorrect":false,"accuracy":35},
+      {"q":"Закон збереження енергії","given":"не пам'ятаю","correct":"Eкін + Eпот = const","isCorrect":false,"accuracy":0}
+    ]},
+    "13": { "subject":"Українська мова", "lessonDate":"11.05.2026", "totalAccuracy":58, "skillsAffected":{"Синтаксис":-0.05}, "responses":[
+      {"q":"Складнопідрядне речення має","given":"одну частину","correct":"головну і підрядну частини","isCorrect":false,"accuracy":25},
+      {"q":"Сполучник \"коли\"","given":"підрядний","correct":"підрядний","isCorrect":true,"accuracy":100}
+    ]},
+    "14": { "subject":"Хімія",           "lessonDate":"05.05.2026", "totalAccuracy":48, "skillsAffected":{"Кислоти":-0.08}, "responses":[
+      {"q":"Формула соляної кислоти","given":"HSO","correct":"HCl","isCorrect":false,"accuracy":15},
+      {"q":"Чи смак кислоти кислий","given":"так","correct":"так","isCorrect":true,"accuracy":100}
+    ]},
+    "15": { "subject":"Біологія",        "lessonDate":"04.05.2026", "totalAccuracy":62, "skillsAffected":{"Будова клітини":0.05}, "responses":[
+      {"q":"Найменша одиниця живого","given":"клітина","correct":"клітина","isCorrect":true,"accuracy":100},
+      {"q":"Функція мітохондрій","given":"травлення","correct":"енергія (АТФ)","isCorrect":false,"accuracy":15}
+    ]},
+    "16": { "subject":"Англійська мова", "lessonDate":"03.05.2026", "totalAccuracy":78, "skillsAffected":{"Present Perfect":0.10}, "responses":[
+      {"q":"I have ___ this book","given":"read","correct":"read","isCorrect":true,"accuracy":100},
+      {"q":"Have you ever ___ Paris?","given":"visit","correct":"visited","isCorrect":false,"accuracy":40},
+      {"q":"\"Already\" in PP","given":"between have and V3","correct":"between have and V3","isCorrect":true,"accuracy":95}
+    ]},
+    "17": { "subject":"Географія",       "lessonDate":"02.05.2026", "totalAccuracy":55, "skillsAffected":{"Материки":-0.05}, "responses":[
+      {"q":"Найменший материк","given":"Антарктида","correct":"Австралія","isCorrect":false,"accuracy":25},
+      {"q":"Океан між Європою і Америкою","given":"Атлантичний","correct":"Атлантичний","isCorrect":true,"accuracy":100}
+    ]},
+    "18": { "subject":"Історія України", "lessonDate":"30.04.2026", "totalAccuracy":42, "skillsAffected":{"Київська Русь":-0.10}, "responses":[
+      {"q":"Засновники Києва","given":"Олег","correct":"Кий, Щек, Хорив, Либідь","isCorrect":false,"accuracy":15},
+      {"q":"Рік хрещення","given":"1054","correct":"988","isCorrect":false,"accuracy":0}
+    ]},
+    "19": { "subject":"Інформатика",     "lessonDate":"28.04.2026", "totalAccuracy":60, "skillsAffected":{"Алгоритми":0.0}, "responses":[
+      {"q":"Що таке алгоритм","given":"набір команд","correct":"послідовність дій для розв'язання задачі","isCorrect":true,"accuracy":75},
+      {"q":"Лінійний алгоритм","given":"з циклом","correct":"без розгалужень і циклів","isCorrect":false,"accuracy":20}
+    ]}
+  },
+
+  "11": {
+    "10": { "subject":"Математика",      "lessonDate":"12.05.2026", "totalAccuracy":99, "skillsAffected":{"Диференціювання":0.20,"Геометричний зміст":0.15,"Фізичний зміст":0.12}, "responses":[
+      {"q":"Похідна x³","given":"3x²","correct":"3x²","isCorrect":true,"accuracy":100},
+      {"q":"f'(x₀) — це","given":"кутовий коефіцієнт дотичної","correct":"кутовий коефіцієнт дотичної","isCorrect":true,"accuracy":100},
+      {"q":"Фізичний зміст похідної","given":"миттєва швидкість","correct":"миттєва швидкість зміни","isCorrect":true,"accuracy":95}
+    ]},
+    "11": { "subject":"Математика",      "lessonDate":"08.05.2026", "totalAccuracy":95, "skillsAffected":{"Тригонометрія":0.18}, "responses":[
+      {"q":"sin(π/6)","given":"1/2","correct":"1/2","isCorrect":true,"accuracy":100},
+      {"q":"Похідна tg(x)","given":"1/cos²(x)","correct":"1/cos²(x)","isCorrect":true,"accuracy":100},
+      {"q":"Формула sin(2x)","given":"2sin(x)cos(x)","correct":"2sin(x)cos(x)","isCorrect":true,"accuracy":100}
+    ]},
+    "12": { "subject":"Фізика",          "lessonDate":"07.05.2026", "totalAccuracy":92, "skillsAffected":{"Закони збереження":0.15}, "responses":[
+      {"q":"Закон збереження енергії","given":"E_kin + E_pot = const (за відсутності тертя)","correct":"E_kin + E_pot = const (без тертя)","isCorrect":true,"accuracy":100},
+      {"q":"Робота сили тертя","given":"від'ємна, переходить у тепло","correct":"від'ємна, переходить у внутрішню енергію","isCorrect":true,"accuracy":95}
+    ]},
+    "13": { "subject":"Українська мова", "lessonDate":"11.05.2026", "totalAccuracy":88, "skillsAffected":{"Синтаксис":0.10}, "responses":[
+      {"q":"Тип підрядного у \"Я знаю, де ти живеш\"","given":"з'ясувальне","correct":"з'ясувальне","isCorrect":true,"accuracy":100},
+      {"q":"Сполучник \"щоб\"","given":"підрядний мети","correct":"підрядний мети","isCorrect":true,"accuracy":100}
+    ]},
+    "14": { "subject":"Хімія",           "lessonDate":"05.05.2026", "totalAccuracy":94, "skillsAffected":{"Кислоти":0.16}, "responses":[
+      {"q":"Реакція кислоти + основа","given":"нейтралізація → сіль + вода","correct":"нейтралізація → сіль + вода","isCorrect":true,"accuracy":100},
+      {"q":"Назва H₂CO₃","given":"карбонатна","correct":"карбонатна","isCorrect":true,"accuracy":100}
+    ]},
+    "15": { "subject":"Біологія",        "lessonDate":"04.05.2026", "totalAccuracy":85, "skillsAffected":{"Будова клітини":0.12}, "responses":[
+      {"q":"Функція лізосом","given":"травлення","correct":"клітинне травлення","isCorrect":true,"accuracy":95},
+      {"q":"Прокаріоти vs еукаріоти","given":"без ядра / з ядром","correct":"без оформленого ядра / з оформленим ядром","isCorrect":true,"accuracy":90}
+    ]},
+    "16": { "subject":"Англійська мова", "lessonDate":"03.05.2026", "totalAccuracy":80, "skillsAffected":{"Present Perfect":0.10}, "responses":[
+      {"q":"PP signal word","given":"already","correct":"already, yet, just, ever, never","isCorrect":true,"accuracy":80},
+      {"q":"V3 of \"write\"","given":"written","correct":"written","isCorrect":true,"accuracy":100}
+    ]},
+    "17": { "subject":"Географія",       "lessonDate":"02.05.2026", "totalAccuracy":86, "skillsAffected":{"Материки":0.10}, "responses":[
+      {"q":"Скільки океанів","given":"4 або 5 (з Південним)","correct":"4 (з Південним 5)","isCorrect":true,"accuracy":95},
+      {"q":"Найвища точка Землі","given":"Еверест 8848","correct":"Еверест (8849м)","isCorrect":true,"accuracy":90}
+    ]},
+    "18": { "subject":"Історія України", "lessonDate":"30.04.2026", "totalAccuracy":90, "skillsAffected":{"Київська Русь":0.12}, "responses":[
+      {"q":"Хрещення Русі","given":"988, Володимир Великий","correct":"988, Володимир Великий","isCorrect":true,"accuracy":100},
+      {"q":"Перший літопис","given":"Повість временних літ, Нестор","correct":"Повість временних літ, Нестор","isCorrect":true,"accuracy":100}
+    ]},
+    "19": { "subject":"Інформатика",     "lessonDate":"28.04.2026", "totalAccuracy":97, "skillsAffected":{"Алгоритми":0.18}, "responses":[
+      {"q":"Що означає O(log n)","given":"логарифмічна складність","correct":"логарифмічна складність","isCorrect":true,"accuracy":100},
+      {"q":"Бінарний пошук","given":"O(log n)","correct":"O(log n)","isCorrect":true,"accuracy":100},
+      {"q":"Цикл while","given":"повторюється поки умова істинна","correct":"повторюється поки умова true","isCorrect":true,"accuracy":100}
+    ]}
+  },
+
+  "12": {
+    "10": { "subject":"Математика",      "lessonDate":"12.05.2026", "totalAccuracy":35, "skillsAffected":{"Диференціювання":-0.18}, "responses":[
+      {"q":"Похідна x²","given":"x","correct":"2x","isCorrect":false,"accuracy":25},
+      {"q":"Похідна константи","given":"1","correct":"0","isCorrect":false,"accuracy":0}
+    ]},
+    "11": { "subject":"Математика",      "lessonDate":"08.05.2026", "totalAccuracy":30, "skillsAffected":{"Тригонометрія":-0.15}, "responses":[
+      {"q":"sin(0) = ?","given":"1","correct":"0","isCorrect":false,"accuracy":0},
+      {"q":"cos(π) = ?","given":"1","correct":"-1","isCorrect":false,"accuracy":0}
+    ]},
+    "12": { "subject":"Фізика",          "lessonDate":"07.05.2026", "totalAccuracy":40, "skillsAffected":{"Закони збереження":-0.12}, "responses":[
+      {"q":"Одиниця енергії","given":"кг","correct":"Джоуль","isCorrect":false,"accuracy":10},
+      {"q":"Кінетична енергія залежить від","given":"маси","correct":"маси і швидкості","isCorrect":false,"accuracy":40}
+    ]},
+    "13": { "subject":"Українська мова", "lessonDate":"11.05.2026", "totalAccuracy":50, "skillsAffected":{"Синтаксис":-0.08}, "responses":[
+      {"q":"Кома перед \"що\"","given":"не ставимо","correct":"ставимо перед підрядним","isCorrect":false,"accuracy":20}
+    ]},
+    "14": { "subject":"Хімія",           "lessonDate":"05.05.2026", "totalAccuracy":42, "skillsAffected":{"Кислоти":-0.10}, "responses":[
+      {"q":"HCl це...","given":"сіль","correct":"кислота","isCorrect":false,"accuracy":15},
+      {"q":"pH 7 це","given":"кисле","correct":"нейтральне","isCorrect":false,"accuracy":0}
+    ]},
+    "15": { "subject":"Біологія",        "lessonDate":"04.05.2026", "totalAccuracy":68, "skillsAffected":{"Будова клітини":0.05}, "responses":[
+      {"q":"Найменша одиниця живого","given":"клітина","correct":"клітина","isCorrect":true,"accuracy":100},
+      {"q":"Функція мембрани","given":"захист","correct":"захист і обмін речовин","isCorrect":true,"accuracy":75}
+    ]},
+    "16": { "subject":"Англійська мова", "lessonDate":"03.05.2026", "totalAccuracy":45, "skillsAffected":{"Present Perfect":-0.10}, "responses":[
+      {"q":"have/has?","given":"завжди have","correct":"have для I/you/we/they, has для he/she/it","isCorrect":false,"accuracy":30}
+    ]},
+    "17": { "subject":"Географія",       "lessonDate":"02.05.2026", "totalAccuracy":55, "skillsAffected":{"Материки":0.0}, "responses":[
+      {"q":"Україна на якому материку","given":"Європа","correct":"Євразія (Європа)","isCorrect":true,"accuracy":80}
+    ]},
+    "18": { "subject":"Історія України", "lessonDate":"30.04.2026", "totalAccuracy":72, "skillsAffected":{"Київська Русь":0.05}, "responses":[
+      {"q":"Столиця Київської Русі","given":"Київ","correct":"Київ","isCorrect":true,"accuracy":100},
+      {"q":"Хто будував Софію Київську","given":"Ярослав Мудрий","correct":"Ярослав Мудрий","isCorrect":true,"accuracy":100}
+    ]},
+    "19": { "subject":"Інформатика",     "lessonDate":"28.04.2026", "totalAccuracy":52, "skillsAffected":{"Алгоритми":-0.05}, "responses":[
+      {"q":"Алгоритм це","given":"програма","correct":"послідовність дій","isCorrect":false,"accuracy":40},
+      {"q":"Цикл for","given":"повторення","correct":"повторення з лічильником","isCorrect":true,"accuracy":70}
+    ]}
+  },
+
+  "13": {
+    "10": { "subject":"Математика",      "lessonDate":"12.05.2026", "totalAccuracy":76, "skillsAffected":{"Диференціювання":0.10,"Знаки в похідних":-0.15}, "responses":[
+      {"q":"Похідна x²","given":"2x","correct":"2x","isCorrect":true,"accuracy":100},
+      {"q":"Фізичний зміст","given":"швидкість","correct":"миттєва швидкість","isCorrect":true,"accuracy":85},
+      {"q":"sin'(x)","given":"-cos(x)","correct":"cos(x)","isCorrect":false,"accuracy":0}
+    ]},
+    "11": { "subject":"Математика",      "lessonDate":"08.05.2026", "totalAccuracy":68, "skillsAffected":{"Тригонометрія":0.05}, "responses":[
+      {"q":"sin(π/4)","given":"√2/2","correct":"√2/2","isCorrect":true,"accuracy":100},
+      {"q":"Похідна cos(x)","given":"sin(x)","correct":"-sin(x)","isCorrect":false,"accuracy":15}
+    ]},
+    "12": { "subject":"Фізика",          "lessonDate":"07.05.2026", "totalAccuracy":88, "skillsAffected":{"Закони збереження":0.18,"Фізичний зміст":0.12}, "responses":[
+      {"q":"Формула потенціальної енергії","given":"mgh","correct":"mgh","isCorrect":true,"accuracy":100},
+      {"q":"Закон збереження","given":"E_кін + E_пот = const","correct":"E_кін + E_пот = const","isCorrect":true,"accuracy":100},
+      {"q":"Робота сили","given":"F·s·cos(α)","correct":"F·s·cos(α)","isCorrect":true,"accuracy":95}
+    ]},
+    "13": { "subject":"Українська мова", "lessonDate":"11.05.2026", "totalAccuracy":65, "skillsAffected":{"Синтаксис":0.03}, "responses":[
+      {"q":"Підрядне означальне","given":"відповідає на питання \"який?\"","correct":"відповідає на питання який?, котрий?","isCorrect":true,"accuracy":85},
+      {"q":"Сполучник \"оскільки\"","given":"причини","correct":"причини","isCorrect":true,"accuracy":100}
+    ]},
+    "14": { "subject":"Хімія",           "lessonDate":"05.05.2026", "totalAccuracy":72, "skillsAffected":{"Кислоти":0.08}, "responses":[
+      {"q":"H₂SO₄","given":"сірчана кислота","correct":"сірчана кислота","isCorrect":true,"accuracy":100},
+      {"q":"Колір лакмусу в кислоті","given":"синій","correct":"червоний","isCorrect":false,"accuracy":15}
+    ]},
+    "15": { "subject":"Біологія",        "lessonDate":"04.05.2026", "totalAccuracy":78, "skillsAffected":{"Будова клітини":0.10}, "responses":[
+      {"q":"Функція ядра","given":"зберігає ДНК","correct":"зберігає ДНК, регулює процеси","isCorrect":true,"accuracy":80},
+      {"q":"Хлоропласт у","given":"тваринах","correct":"рослинах","isCorrect":false,"accuracy":0}
+    ]},
+    "16": { "subject":"Англійська мова", "lessonDate":"03.05.2026", "totalAccuracy":62, "skillsAffected":{"Present Perfect":0.05}, "responses":[
+      {"q":"have + V3","given":"Present Perfect","correct":"Present Perfect","isCorrect":true,"accuracy":100},
+      {"q":"\"For\" vs \"since\"","given":"for — точка часу, since — період","correct":"for — період, since — точка часу","isCorrect":false,"accuracy":35}
+    ]},
+    "17": { "subject":"Географія",       "lessonDate":"02.05.2026", "totalAccuracy":70, "skillsAffected":{"Материки":0.05}, "responses":[
+      {"q":"Найвища гірська система","given":"Гімалаї","correct":"Гімалаї","isCorrect":true,"accuracy":100},
+      {"q":"Найдовша річка","given":"Амазонка","correct":"Ніл (за деякими — Амазонка)","isCorrect":true,"accuracy":75}
+    ]},
+    "18": { "subject":"Історія України", "lessonDate":"30.04.2026", "totalAccuracy":65, "skillsAffected":{"Київська Русь":0.05}, "responses":[
+      {"q":"Княгиня Ольга","given":"перша христянка серед княжих","correct":"перша християнка серед княжих, помста древлянам","isCorrect":true,"accuracy":75},
+      {"q":"Битва на Калці","given":"з татаро-монголами 1223","correct":"з татаро-монголами 1223","isCorrect":true,"accuracy":100}
+    ]},
+    "19": { "subject":"Інформатика",     "lessonDate":"28.04.2026", "totalAccuracy":80, "skillsAffected":{"Алгоритми":0.10}, "responses":[
+      {"q":"Що таке змінна","given":"іменована комірка пам'яті","correct":"іменована комірка пам'яті","isCorrect":true,"accuracy":100},
+      {"q":"Сортування бульбашкою","given":"O(n²)","correct":"O(n²)","isCorrect":true,"accuracy":100}
+    ]}
+  }
+}

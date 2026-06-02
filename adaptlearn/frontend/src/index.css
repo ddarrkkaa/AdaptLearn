@@ -1,0 +1,391 @@
+/*
+ * AdaptLearn — Neuro theme (dark cinematic bio-organic).
+ * Існуючі CSS-змінні (--bg, --surface, --primary, ...) перевизначені під неуро-палітру,
+ * тому весь старий код, який їх використовує, автоматично отримує новий вигляд.
+ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root, [data-theme="dark"] {
+  /* Dark neuro palette (default) */
+  --neuro-bg:     #050507;
+  --neuro-bg-2:   #0C0C12;
+  --neuro-card:   #0B0C13;
+  --neuro-border: #1A1B24;
+  --neuro-teal:   #00E6C8;
+  --neuro-gold:   #E8B923;
+  --neuro-coral:  #FF5E7A;
+
+  /* RGB-triplets для Tailwind utility з /alpha (наприклад tw-bg-neuro-card/80) */
+  --neuro-bg-rgb:     5 5 7;
+  --neuro-bg-2-rgb:   12 12 18;
+  --neuro-card-rgb:   11 12 19;
+  --neuro-border-rgb: 26 27 36;
+  --neuro-text-rgb:   232 234 240;
+  --neuro-muted-rgb:  122 126 143;
+  --neuro-dim-rgb:    74 78 93;
+
+  /* Translucent для backdrop-blur sidebars */
+  --sidebar-bg:   rgba(11, 12, 19, 0.72);
+
+  /* Existing tokens mapped to neuro */
+  --primary:       var(--neuro-teal);
+  --primary-hover: #00C9AE;
+  --primary-10:    rgba(0, 230, 200, 0.10);
+  --primary-20:    rgba(0, 230, 200, 0.22);
+
+  --bg:           var(--neuro-bg);
+  --surface:      var(--neuro-card);
+  --surface-2:    #0F1018;
+  --text:         #E8EAF0;
+  --text-muted:   #7A7E8F;
+  --border:       var(--neuro-border);
+
+  --success:      #22c55e;
+  --success-bg:   rgba(34,197,94,0.16);
+  --warning:      var(--neuro-gold);
+  --warning-bg:   rgba(232,185,35,0.16);
+  --danger:       var(--neuro-coral);
+  --danger-bg:    rgba(255,94,122,0.16);
+
+  --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 22px;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+  --shadow:    0 4px 14px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.03);
+  --shadow-md: 0 10px 32px rgba(0,0,0,0.6), 0 0 24px rgba(0,230,200,0.08);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,0.7), 0 0 40px rgba(0,230,200,0.12);
+
+  --tr: 200ms ease;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  color-scheme: dark;
+}
+
+/* Палітра захардкоджена на teal — палітри-варіанти прибрані з UI */
+[data-palette="teal"], [data-palette="rose"], [data-palette="amber"],
+[data-palette="emerald"], [data-palette="violet"], [data-palette="indigo"] {
+  --primary:       #00E6C8;
+  --primary-hover: #00C9AE;
+  --primary-10:    rgba(0, 230, 200, 0.10);
+  --primary-20:    rgba(0, 230, 200, 0.22);
+}
+
+/* ── Світла тема — м'яка цифрова, з тим самим teal акцентом ─────────────── */
+[data-theme="light"] {
+  --neuro-bg:     #F4F6FB;
+  --neuro-bg-2:   #FFFFFF;
+  --neuro-card:   #FFFFFF;
+  --neuro-border: #E2E8F0;
+
+  /* RGB-triplets для світла */
+  --neuro-bg-rgb:     244 246 251;
+  --neuro-bg-2-rgb:   255 255 255;
+  --neuro-card-rgb:   255 255 255;
+  --neuro-border-rgb: 226 232 240;
+  --neuro-text-rgb:   15 23 42;
+  --neuro-muted-rgb:  71 85 105;
+  --neuro-dim-rgb:    148 163 184;
+
+  --bg:           #F4F6FB;
+  --surface:      #FFFFFF;
+  --surface-2:    #F1F5F9;
+  --text:         #0F172A;
+  --text-muted:   #64748B;
+  --border:       #E2E8F0;
+
+  --primary-10:   rgba(0, 230, 200, 0.10);
+  --primary-20:   rgba(0, 230, 200, 0.22);
+
+  --success:      #16a34a;
+  --success-bg:   rgba(34,197,94,0.12);
+  --warning-bg:   rgba(232,185,35,0.14);
+  --danger-bg:    rgba(255,94,122,0.12);
+
+  --shadow-sm: 0 1px 3px rgba(15,23,42,0.06);
+  --shadow:    0 4px 12px rgba(15,23,42,0.08);
+  --shadow-md: 0 10px 24px rgba(15,23,42,0.10), 0 0 22px rgba(0,230,200,0.10);
+  --shadow-lg: 0 20px 48px rgba(15,23,42,0.12), 0 0 32px rgba(0,230,200,0.12);
+
+  --sidebar-bg:   rgba(255, 255, 255, 0.72);
+
+  color-scheme: light;
+}
+
+/* ── Body — нейронна сітка-фон (видно скрізь) ─────────────────────────────── */
+html, body { background-color: var(--bg); }
+
+body {
+  /* Сітка з світними крапками + два кольорові glow */
+  background-image:
+    radial-gradient(circle at 1.2px 1.2px, rgba(0, 230, 200, 0.13) 1.2px, transparent 1.6px),
+    radial-gradient(ellipse 900px 700px at 15% 0%,  rgba(0, 230, 200, 0.10), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 85% 100%, rgba(232, 185, 35, 0.06), transparent 60%);
+  background-size: 28px 28px, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.55;
+  font-size: 15.5px;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.005em;
+  position: relative;
+}
+
+/* 3D-плаваючі біолюмінесцентні плями на тлі. Анімовано (drift). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle 400px at 25% 75%, rgba(0, 230, 200, 0.07), transparent 70%),
+    radial-gradient(circle 350px at 75% 25%, rgba(255, 94, 122, 0.04), transparent 70%),
+    radial-gradient(circle 300px at 50% 50%, rgba(232, 185, 35, 0.03), transparent 70%);
+  animation: bodyDrift 22s ease-in-out infinite alternate;
+}
+
+/* ── Для світлої теми: темніші крапки на світлому фоні + м'якший glow ──── */
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(circle at 1.2px 1.2px, rgba(15,23,42,0.08) 1.2px, transparent 1.6px),
+    radial-gradient(ellipse 900px 700px at 15% 0%,  rgba(0, 230, 200, 0.06), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 85% 100%, rgba(232, 185, 35, 0.04), transparent 60%);
+}
+[data-theme="light"] body::before {
+  background-image:
+    radial-gradient(circle 400px at 25% 75%, rgba(0, 230, 200, 0.05), transparent 70%),
+    radial-gradient(circle 350px at 75% 25%, rgba(255, 94, 122, 0.03), transparent 70%);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(15,23,42,0.20);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(15,23,42,0.38);
+}
+@keyframes bodyDrift {
+  0%   { transform: translate3d(0px,   0px,   0); }
+  50%  { transform: translate3d(-30px, 20px,  0); }
+  100% { transform: translate3d(20px,  -25px, 0); }
+}
+
+/* Контент над декором */
+#root { min-height: 100vh; position: relative; z-index: 1; }
+
+/* ── Скидаємо browser-defaults для button (через preflight: false в Tailwind
+       браузерний жовтий/сірий фон вилазив крізь Tailwind-кнопки) ────────────── */
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ── Тонкий неуро-скролбар ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 230, 200, 0.18);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 230, 200, 0.38); }
+
+/* ── Кнопки з неуро-glow ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background var(--tr), opacity var(--tr), transform 80ms ease, box-shadow var(--tr), border-color var(--tr);
+  white-space: nowrap;
+  font-family: inherit;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: #050507;
+  box-shadow: 0 0 0 1px var(--primary-20), 0 4px 18px rgba(0, 230, 200, 0.32);
+}
+.btn-primary:hover {
+  box-shadow: 0 0 0 1px var(--primary), 0 6px 26px rgba(0, 230, 200, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  background: rgba(0, 230, 200, 0.06);
+  color: var(--text);
+  border-color: rgba(0, 230, 200, 0.3);
+  box-shadow: 0 0 18px rgba(0, 230, 200, 0.10);
+}
+
+/* ── Табси з неуро-glow на active ───────────────────────────────────────── */
+.tabs {
+  display: inline-flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 5px;
+}
+.tab {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--tr), color var(--tr), box-shadow var(--tr);
+  font-family: inherit;
+}
+.tab:hover { color: var(--text); }
+.tab.active {
+  background: var(--primary);
+  color: #050507;
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(0, 230, 200, 0.50);
+}
+
+/* ── Інпути з неуро-focus ring ──────────────────────────────────────────── */
+/* ── File input — стилізована drop-zone замість бридкого browser-default ── */
+input[type="file"] {
+  width: 100%;
+  padding: 18px 20px;
+  border: 1.5px dashed rgba(0, 230, 200, 0.30);
+  border-radius: var(--r);
+  background: rgba(0, 230, 200, 0.03);
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--tr);
+}
+input[type="file"]:hover {
+  border-color: var(--primary);
+  background: rgba(0, 230, 200, 0.07);
+  color: var(--text);
+  box-shadow: 0 0 22px rgba(0, 230, 200, 0.12);
+}
+input[type="file"]::-webkit-file-upload-button,
+input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: #050507;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 14px;
+  transition: box-shadow var(--tr);
+  font-family: inherit;
+}
+input[type="file"]::-webkit-file-upload-button:hover,
+input[type="file"]::file-selector-button:hover {
+  box-shadow: 0 0 18px rgba(0, 230, 200, 0.50);
+}
+
+input[type="text"], input[type="password"], input[type="number"],
+input[type="email"], input[type="search"], input:not([type]),
+textarea, select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 14.5px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color var(--tr), box-shadow var(--tr), background var(--tr);
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--primary-20), 0 0 18px rgba(0, 230, 200, 0.12);
+}
+input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 0.55; }
+
+/* У темній темі — глибший напівпрозорий чорний для інпутів */
+[data-theme="dark"] input[type="text"], [data-theme="dark"] input[type="password"],
+[data-theme="dark"] input[type="number"], [data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="search"], [data-theme="dark"] input:not([type]),
+[data-theme="dark"] textarea, [data-theme="dark"] select {
+  background: rgba(11, 12, 19, 0.6);
+}
+[data-theme="dark"] input:focus, [data-theme="dark"] textarea:focus, [data-theme="dark"] select:focus {
+  background: rgba(11, 12, 19, 0.9);
+}
+
+/* ── Прогрес-бар з glow ─────────────────────────────────────────────────── */
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--neuro-gold));
+  border-radius: 99px;
+  box-shadow: 0 0 10px rgba(0, 230, 200, 0.55);
+  transition: width 600ms ease;
+}
+
+/* ── Бейджі ─────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 11px;
+  border-radius: 99px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-green  { background: rgba(34,197,94,0.16);  color: #5BE39A; border: 1px solid rgba(34,197,94,0.30); }
+.badge-red    { background: rgba(255,94,122,0.16); color: #FF8FA3; border: 1px solid rgba(255,94,122,0.30); }
+.badge-yellow { background: rgba(232,185,35,0.16); color: #F5D061; border: 1px solid rgba(232,185,35,0.30); }
+.badge-blue   { background: var(--primary-10);     color: var(--primary); border: 1px solid var(--primary-20); }
+
+/* ── Анімації ───────────────────────────────────────────────────────────── */
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes spin   { to { transform: rotate(360deg); } }
+@keyframes neuroPulse {
+  0%,100% { opacity: 0.55; }
+  50%     { opacity: 1; }
+}
+.fade-in { animation: fadeIn 320ms ease both; }
+.spinner {
+  width:18px; height:18px;
+  border: 2px solid rgba(0, 230, 200, 0.15);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+  display: inline-block;
+}
+
+/* ── Селекшн ────────────────────────────────────────────────────────────── */
+::selection { background: rgba(0, 230, 200, 0.35); color: #fff; }
+
+/* ── Загальна типографія ────────────────────────────────────────────────── */
+h1, h2, h3, h4 { letter-spacing: -0.012em; }
+h1 { font-size: 28px; font-weight: 700; }
+h2 { font-size: 22px; font-weight: 700; }
+h3 { font-size: 17px; font-weight: 700; }

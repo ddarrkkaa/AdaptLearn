@@ -1,0 +1,97 @@
+{
+  "_comment": "Граф знань 10А — 20 вузлів по 10 предметах. Координати: 4 колонки × 5 рядів = 800x600 SVG viewBox.",
+
+  "nodes": [
+    { "id": "n_alg_basics",    "name": "Алгебраїчні основи",     "subject": "Математика",      "x": 20,  "y": 30,  "prereqs": [] },
+    { "id": "n_functions",     "name": "Функції",                "subject": "Математика",      "x": 220, "y": 30,  "prereqs": ["n_alg_basics"] },
+    { "id": "n_limits",        "name": "Границі",                "subject": "Математика",      "x": 420, "y": 30,  "prereqs": ["n_functions"] },
+    { "id": "n_derivative",    "name": "Похідна функції",        "subject": "Математика",      "x": 620, "y": 30,  "prereqs": ["n_limits"] },
+
+    { "id": "n_trig",          "name": "Тригонометрія",          "subject": "Математика",      "x": 220, "y": 110, "prereqs": ["n_functions"] },
+    { "id": "n_trig_deriv",    "name": "Похідні тригонометр.",   "subject": "Математика",      "x": 420, "y": 110, "prereqs": ["n_derivative", "n_trig"] },
+    { "id": "n_geom_meaning",  "name": "Геометричний зміст",     "subject": "Математика",      "x": 620, "y": 110, "prereqs": ["n_derivative"] },
+
+    { "id": "n_energy_basics", "name": "Енергія: основи",        "subject": "Фізика",          "x": 20,  "y": 200, "prereqs": [] },
+    { "id": "n_energy_cons",   "name": "Закон збереження",       "subject": "Фізика",          "x": 220, "y": 200, "prereqs": ["n_energy_basics"] },
+    { "id": "n_friction",      "name": "Робота сил тертя",       "subject": "Фізика",          "x": 420, "y": 200, "prereqs": ["n_energy_cons"] },
+    { "id": "n_phys_meaning",  "name": "Фізичний зміст похідної","subject": "Фізика",          "x": 620, "y": 200, "prereqs": ["n_derivative"] },
+
+    { "id": "n_acid",          "name": "Кислоти: формули",       "subject": "Хімія",           "x": 20,  "y": 290, "prereqs": [] },
+    { "id": "n_acid_reactions","name": "Реакції кислот",         "subject": "Хімія",           "x": 220, "y": 290, "prereqs": ["n_acid"] },
+
+    { "id": "n_cell",          "name": "Клітина: структура",     "subject": "Біологія",        "x": 420, "y": 290, "prereqs": [] },
+    { "id": "n_organelles",    "name": "Органели",               "subject": "Біологія",        "x": 620, "y": 290, "prereqs": ["n_cell"] },
+
+    { "id": "n_pp",            "name": "Present Perfect",        "subject": "Англійська мова", "x": 20,  "y": 380, "prereqs": [] },
+    { "id": "n_geo_mater",     "name": "Материки і океани",      "subject": "Географія",       "x": 220, "y": 380, "prereqs": [] },
+    { "id": "n_kievan_rus",    "name": "Київська Русь",          "subject": "Історія України", "x": 420, "y": 380, "prereqs": [] },
+    { "id": "n_ukr_syntax",    "name": "Складнопідрядні",        "subject": "Українська мова", "x": 620, "y": 380, "prereqs": [] },
+
+    { "id": "n_algorithms",    "name": "Алгоритми",              "subject": "Інформатика",     "x": 220, "y": 470, "prereqs": [] },
+    { "id": "n_complexity",    "name": "Складність O(n)",        "subject": "Інформатика",     "x": 420, "y": 470, "prereqs": ["n_algorithms"] }
+  ],
+
+  "edges": [
+    { "from": "n_alg_basics",    "to": "n_functions" },
+    { "from": "n_functions",     "to": "n_limits" },
+    { "from": "n_limits",        "to": "n_derivative" },
+    { "from": "n_functions",     "to": "n_trig" },
+    { "from": "n_derivative",    "to": "n_trig_deriv" },
+    { "from": "n_trig",          "to": "n_trig_deriv" },
+    { "from": "n_derivative",    "to": "n_geom_meaning" },
+    { "from": "n_derivative",    "to": "n_phys_meaning" },
+    { "from": "n_energy_basics", "to": "n_energy_cons" },
+    { "from": "n_energy_cons",   "to": "n_friction" },
+    { "from": "n_acid",          "to": "n_acid_reactions" },
+    { "from": "n_cell",          "to": "n_organelles" },
+    { "from": "n_algorithms",    "to": "n_complexity" }
+  ],
+
+  "studentMastery": {
+    "9": {
+      "n_alg_basics": 0.92, "n_functions": 0.85, "n_limits": 0.70, "n_derivative": 0.65,
+      "n_trig": 0.55, "n_trig_deriv": 0.30, "n_geom_meaning": 0.40, "n_phys_meaning": 0.72,
+      "n_energy_basics": 0.80, "n_energy_cons": 0.65, "n_friction": 0.25,
+      "n_acid": 0.88, "n_acid_reactions": 0.78,
+      "n_cell": 0.92, "n_organelles": 0.85,
+      "n_pp": 0.70, "n_geo_mater": 0.78, "n_kievan_rus": 0.74, "n_ukr_syntax": 0.71,
+      "n_algorithms": 0.85, "n_complexity": 0.65
+    },
+    "10": {
+      "n_alg_basics": 0.65, "n_functions": 0.50, "n_limits": 0.40, "n_derivative": 0.35,
+      "n_trig": 0.30, "n_trig_deriv": 0.10, "n_geom_meaning": 0.25, "n_phys_meaning": 0.30,
+      "n_energy_basics": 0.45, "n_energy_cons": 0.20, "n_friction": 0.05,
+      "n_acid": 0.48, "n_acid_reactions": 0.35,
+      "n_cell": 0.62, "n_organelles": 0.55,
+      "n_pp": 0.78, "n_geo_mater": 0.55, "n_kievan_rus": 0.42, "n_ukr_syntax": 0.58,
+      "n_algorithms": 0.60, "n_complexity": 0.35
+    },
+    "11": {
+      "n_alg_basics": 0.98, "n_functions": 0.95, "n_limits": 0.90, "n_derivative": 0.92,
+      "n_trig": 0.95, "n_trig_deriv": 0.85, "n_geom_meaning": 0.88, "n_phys_meaning": 0.92,
+      "n_energy_basics": 0.94, "n_energy_cons": 0.92, "n_friction": 0.80,
+      "n_acid": 0.94, "n_acid_reactions": 0.90,
+      "n_cell": 0.85, "n_organelles": 0.82,
+      "n_pp": 0.80, "n_geo_mater": 0.86, "n_kievan_rus": 0.90, "n_ukr_syntax": 0.88,
+      "n_algorithms": 0.97, "n_complexity": 0.92
+    },
+    "12": {
+      "n_alg_basics": 0.45, "n_functions": 0.30, "n_limits": 0.20, "n_derivative": 0.15,
+      "n_trig": 0.10, "n_trig_deriv": 0.05, "n_geom_meaning": 0.10, "n_phys_meaning": 0.15,
+      "n_energy_basics": 0.35, "n_energy_cons": 0.20, "n_friction": 0.10,
+      "n_acid": 0.42, "n_acid_reactions": 0.30,
+      "n_cell": 0.68, "n_organelles": 0.60,
+      "n_pp": 0.45, "n_geo_mater": 0.55, "n_kievan_rus": 0.72, "n_ukr_syntax": 0.50,
+      "n_algorithms": 0.52, "n_complexity": 0.28
+    },
+    "13": {
+      "n_alg_basics": 0.85, "n_functions": 0.78, "n_limits": 0.60, "n_derivative": 0.76,
+      "n_trig": 0.68, "n_trig_deriv": 0.35, "n_geom_meaning": 0.60, "n_phys_meaning": 0.85,
+      "n_energy_basics": 0.88, "n_energy_cons": 0.85, "n_friction": 0.70,
+      "n_acid": 0.72, "n_acid_reactions": 0.65,
+      "n_cell": 0.78, "n_organelles": 0.72,
+      "n_pp": 0.62, "n_geo_mater": 0.70, "n_kievan_rus": 0.65, "n_ukr_syntax": 0.65,
+      "n_algorithms": 0.80, "n_complexity": 0.72
+    }
+  }
+}
